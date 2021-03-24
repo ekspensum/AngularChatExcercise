@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as SockJS from 'sockjs-client';
+import { SocketClientService } from './socket-client.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularChatExcercise';
+
+  constructor(private socketClient: SocketClientService){
+    this.socketClient.connectToChat('Some username');
+  }
 }
